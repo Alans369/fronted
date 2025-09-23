@@ -1,20 +1,27 @@
 import { useState } from "react";
+import { Loginsend } from "./restore/LoginSend";
 
 
 
 const Login = () => {
-    const [inputs, setInputs] = useState({login:'',clave:''});
-
-     function handleSubmit(e:any) {
-     e.preventDefault();
-    }
+    const [inputs, setInputs] = useState({login:'',clave:''})
+    console.log('render');
+async function handleSubmit(e: React.FormEvent) {
+  e.preventDefault();           // ← SIEMPRE primero
+  console.log('enviando datos');
+  try {
+    await Loginsend(inputs);    // ← espera para ver logs o errores
+  } catch (err) {
+    console.error('Login falló', err);
+  }
+}
     
     const handleChange = (e:any) => {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     setInputs(values => ({...values, [name]: value}))
-    console.log(inputs)
+
    }
 
 
