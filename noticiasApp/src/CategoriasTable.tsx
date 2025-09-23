@@ -1,12 +1,28 @@
-import { useEffect } from "react";
-import { useFormStatus } from "react-dom"
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 
 function CategoriasTable() {
 
+    const [categorias,setCategorias]=useState([{id:null,nombre:null}])
+
 
     useEffect(() => {
-   
+
+        const token = localStorage.getItem('user');
+        axios.get('https://apinoticia.onrender.com/api/categorias?page=0&size=1',{
+             headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+        }   
+        ).then(function (response) {
+            setCategorias(response.data.content)
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
      },[]);
 
     
@@ -18,17 +34,12 @@ function CategoriasTable() {
         <thead className="bg-gray-100 whitespace-nowrap">
           <tr>
             <th className="px-4 py-4 text-left text-xs font-semibold text-slate-900 uppercase tracking-wider">
-              Name
+              #
             </th>
             <th className="px-4 py-4 text-left text-xs font-semibold text-slate-900 uppercase tracking-wider">
-              Email
+              nombre
             </th>
-            <th className="px-4 py-4 text-left text-xs font-semibold text-slate-900 uppercase tracking-wider">
-              Role
-            </th>
-            <th className="px-4 py-4 text-left text-xs font-semibold text-slate-900 uppercase tracking-wider">
-              Joined At
-            </th>
+
             <th className="px-4 py-4 text-left text-xs font-semibold text-slate-900 uppercase tracking-wider">
               Actions
             </th>
@@ -36,81 +47,30 @@ function CategoriasTable() {
         </thead>
 
         <tbody className="bg-white divide-y divide-gray-200 whitespace-nowrap">
-          <tr>
-            <td className="px-4 py-4 text-sm text-slate-900 font-medium">
-              John Doe
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              john@example.com
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              Admin
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              2022-05-15
-            </td>
-            <td className="px-4 py-4 text-sm">
-              <button className="cursor-pointer text-blue-600 font-medium mr-4">Edit</button>
-              <button className="cursor-pointer text-red-600 font-medium">Delete</button>
-            </td>
-          </tr>
+    
 
-          <tr>
+        {
+            categorias.map(item=>(
+            <tr>
             <td className="px-4 py-4 text-sm text-slate-900 font-medium">
-              Jane Smith
+              {item.id}
             </td>
             <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              jane@example.com
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              User
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              2022-07-20
+              {item.nombre}
             </td>
             <td className="px-4 py-4 text-sm">
               <button className="cursor-pointer text-blue-600 font-medium mr-4">Edit</button>
               <button className="cursor-pointer text-red-600 font-medium">Delete</button>
             </td>
           </tr>
+            ))
+        }
+          
+          
 
-          <tr>
-            <td className="px-4 py-4 text-sm text-slate-900 font-medium">
-              Alen doe
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              alen@example.com
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              User
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              2022-07-21
-            </td>
-            <td className="px-4 py-4 text-sm">
-              <button className="cursor-pointer text-blue-600 font-medium mr-4">Edit</button>
-              <button className="cursor-pointer text-red-600 font-medium">Delete</button>
-            </td>
-          </tr>
+        
 
-          <tr>
-            <td className="px-4 py-4 text-sm text-slate-900 font-medium">
-              Dustin
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              dustin@example.com
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              User
-            </td>
-            <td className="px-4 py-4 text-sm text-slate-600 font-medium">
-              2022-07-21
-            </td>
-            <td className="px-4 py-4 text-sm">
-              <button className="cursor-pointer text-blue-600 font-medium mr-4">Edit</button>
-              <button className="cursor-pointer text-red-600 font-medium">Delete</button>
-            </td>
-          </tr>
+         
         </tbody>
       </table>
     </div>
