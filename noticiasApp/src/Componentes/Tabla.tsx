@@ -1,13 +1,18 @@
 
+interface param{
+    data: {id:number,nombre:string}[];
+    page: number;
+    cambiarPagina: (num:number) => void;
 
+}
 
-export const Tabla= (props:any)=>{
+export const Tabla= ({data,page,cambiarPagina}:param)=>{
 
     const items = [];
   
-  for (let i = 0; i < props.page; i++) {
+  for (let i = 0; i < page; i++) {
     items.push(<li>
-                <a href="#" className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{i+1}</a>
+                <span onClick={()=>{cambiarPagina(i)}} className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{i+1}</span>
             </li>);
   }
 
@@ -28,7 +33,7 @@ export const Tabla= (props:any)=>{
                         </tr>
                     </thead>
                     <tbody>
-                        {props.data.map(item=>(
+                        {data.map(item=>(
                             <tr className="bg-white border-b dark:bg-white-800 dark:border-gray-700 border-gray-200">
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray">
                                 {item.id}

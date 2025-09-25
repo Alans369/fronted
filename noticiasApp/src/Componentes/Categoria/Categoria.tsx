@@ -43,7 +43,7 @@ function Categoria() {
 
     useEffect(() => {
       getcategoria()
-     },[]);
+     },[pagination]);
 
      
 
@@ -55,6 +55,10 @@ function Categoria() {
 
     function cammbiar(estado:string):void{
         setBarraLateral(estado)
+
+    }
+    function cammbiarPagina(num:number):void{
+        setPagination(num)
 
     }
 
@@ -71,7 +75,7 @@ function Categoria() {
            {componente}
 
         <div className="w-4/5 pt-40 pl-20 pr-20">
-        <Tabla data={categorias} page={pagination}/>
+        <Tabla data={categorias} page={pagination}  cambiarPagina={cammbiarPagina}/>
         </div>
    
     </div>
