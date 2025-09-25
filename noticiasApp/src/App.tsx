@@ -3,7 +3,8 @@ import './index.css'
 
 import Login from './Login'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import CategoriasTable from './CategoriasTable'
+
+import Categoria from './Componentes/Categoria/Categoria'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,7 +19,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/categoria" element={<CategoriasTable></CategoriasTable>} />
+        <Route path="/categoria" element={<Categoria></Categoria>} />
     
       </Routes>
     </BrowserRouter>

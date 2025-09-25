@@ -1,28 +1,38 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { CategoriaHttp } from "./restore/CategoriaHttp";
+
+
+
+
+interface  cat 
+  {id:number,nombre:string}
 
 
 
 function CategoriasTable() {
+   
+  const data:cat[]=[];
 
-    const [categorias,setCategorias]=useState([{id:null,nombre:null}])
+    const [categorias,setCategorias]=useState(data)
 
+
+    async function getcategoria(){
+
+      const http = new CategoriaHttp();
+      try {
+        const result  = await http.getAll(0,5)
+        console.log(result.content)
+        setCategorias(result.content)
+      } catch (error) {
+        console.log(error)
+        
+      }
+
+    }
 
     useEffect(() => {
-
-        const token = localStorage.getItem('user');
-        axios.get('https://apinoticia.onrender.com/api/categorias?page=0&size=1',{
-             headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-        }   
-        ).then(function (response) {
-            setCategorias(response.data.content)
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+      getcategoria()
      },[]);
 
     

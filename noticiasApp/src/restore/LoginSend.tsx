@@ -10,7 +10,7 @@ export async function Loginsend(data: login) {
   console.log('Body:', data);
   try {
     const response = await axios.post(
-    'https://hphxd0n0-8080.use2.devtunnels.ms/api/auth/login',
+    'https://apinoticia.onrender.com/api/auth/login',
     data
   ); 
   console.log(response)
