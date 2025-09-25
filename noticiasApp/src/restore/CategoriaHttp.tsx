@@ -82,10 +82,23 @@ export class CategoriaHttp{
 
     async update(data:{id:number,nombre:string}){
         try {
-            return this.send.post(`${this.url}api/categorias/1`,
-                {
+            return this.send.put(`${this.url}/api/categorias/1`,
+                
                     data
-                }
+                
+            )
+        } catch (error) {
+            throw error;
+            
+        }
+
+    }
+
+    
+    async delete(id:number){
+        try {
+            return this.send.delete(`${this.url}/api/categorias/${id}`,
+                
             )
         } catch (error) {
             throw error;

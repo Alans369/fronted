@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { CategoriaHttp } from "./restore/CategoriaHttp";
 
@@ -40,7 +39,7 @@ function CategoriasTable() {
   return (
     <div>
         <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200">
+      <table className="min-w-full divide-y divide-gray-200 ">
         <thead className="bg-gray-100 whitespace-nowrap">
           <tr>
             <th className="px-4 py-4 text-left text-xs font-semibold text-slate-900 uppercase tracking-wider">

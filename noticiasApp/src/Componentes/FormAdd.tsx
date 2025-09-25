@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CategoriaHttp } from "../restore/CategoriaHttp";
 
-const FlechaAtras = ({ size = 20 }) => (
+export const FlechaAtras = ({ size = 20 }) => (
     <svg 
       width={size} 
       height={size} 
