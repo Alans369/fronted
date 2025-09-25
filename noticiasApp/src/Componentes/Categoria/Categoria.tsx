@@ -17,14 +17,18 @@ function Categoria() {
 
     const [barraLateral,setBarraLateral]=useState('menu')
 
+    const [pagination,setPagination]=useState(0)
+
 
     async function getcategoria(){
 
       const http = new CategoriaHttp();
       try {
-        const result  = await http.getAll(0,5)
-        console.log(result.content)
+        const result  = await http.getAll(pagination)
+        
+        console.log(result)
         setCategorias(result.content)
+        setPagination(result.totalPages)
       } catch (error) {
         console.log(error)
         
@@ -67,10 +71,10 @@ function Categoria() {
            {componente}
 
         <div className="w-4/5 pt-40 pl-20 pr-20">
-        <Tabla data={categorias}/>
+        <Tabla data={categorias} page={pagination}/>
         </div>
    
-        </div>
+    </div>
         </>
 
 

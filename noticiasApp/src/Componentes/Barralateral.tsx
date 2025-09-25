@@ -8,7 +8,7 @@ interface MyComponentProps {
 export const Barralateral: React.FC<MyComponentProps> = ({ onButtonClick }) => {
 
     return (
-        <div className="w-1/5 h-screen bg-gray-100 text-white p-4">
+    <div className="w-1/5 h-screen bg-gray-100 text-white p-4">
       <ul className="space-y-1">
         <li>
           <a href="#" className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-gray-700">
