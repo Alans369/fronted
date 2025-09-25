@@ -29,6 +29,7 @@ export const FormAdd: React.FC<MyComponentProps> = ({ onButtonClick }) => {
    const handleSubmit = async () => {
     const http = new CategoriaHttp()
     console.log(await http.save({nombre}))
+    onButtonClick('menu')
   
   };
 
