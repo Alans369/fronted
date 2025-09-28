@@ -21,7 +21,7 @@ export interface Content {
 
 export interface Pageable {
     pageNumber: number;
-    pageSize:   number;
+    pageSize:   number; 
     sort:       Sort;
     offset:     number;
     paged:      boolean;
