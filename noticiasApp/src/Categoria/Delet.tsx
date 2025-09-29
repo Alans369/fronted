@@ -52,6 +52,7 @@ const Delet = ({ isOpen, onClose,upload }: FormEditProps) => {
             if (isVisible) {
               const timer = setTimeout(() => {
                 setIsVisible(false); // Oculta el mensaje después de 1000 ms (1 segundo)
+                onClose(false)
               }, 1000);
         
               // Limpia el temporizador si el componente se desmonta antes de que pase el segundo

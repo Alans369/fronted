@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
+import React, { useContext, useEffect, useState, type FormEvent } from 'react'
 import { createPortal } from 'react-dom';
 import { serviceNoticia } from '../services/Noticia';
 import { DataContext } from './DataContext';

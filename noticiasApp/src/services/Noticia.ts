@@ -1,5 +1,5 @@
 import axios, { type AxiosInstance } from "axios";
-import type { Categoria,Noticia,Paginanoticiass } from "../helper/Types";
+import type { Categoria,dto,Noticia,Paginanoticiass } from "../helper/Types";
 
 export class serviceNoticia {
   private url: string = "https://apinoticia.onrender.com";
@@ -37,9 +37,9 @@ export class serviceNoticia {
   }
  }
 
-  async save(data:Pick<Categoria,'nombre'>){
+  async save(data:dto){
          try {
-             return this.request.post(`${this.url}/api/categorias`,
+             return this.request.post(`${this.url}/api/noticias`,
                  data
              )
          } catch (error) {

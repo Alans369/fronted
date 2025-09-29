@@ -17,6 +17,16 @@ export interface Noticia {
   categoria: Categoria
 }
 
+export interface dto {
+  titulo: string
+  contenido: string
+  fechaPublicacion: string
+  categoriaId: number
+}
+
+
+
+
 export interface Paginanoticiass {
     content:          Noticia[];
     pageable:         Pageable;
