@@ -74,35 +74,35 @@ const FormAdd = ({ isOpen, onClose,upload }: FormEditProps) => {
                       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                       
               <div className="p-4 mx-auto max-w-xl bg-white">
-                      <h2 className="text-3xl text-slate-900 font-bold">Contact us</h2>
+                      <h2 className="text-3xl text-slate-900 font-bold">Crear noticia</h2>
                       <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                       <div>
-                          <label className='text-sm text-slate-900 font-medium mb-2 block'>Name</label>
-                          <input type='text' placeholder='Enter Name'
+                          <label className='text-sm text-slate-900 font-medium mb-2 block'>titulo</label>
+                          <input type='text' placeholder='Enter titulo'
                           name="titulo"
                           value={noticia.titulo}
                           onChange={handleChange} 
                           className="w-full py-2.5 px-4 text-slate-800 bg-gray-100 border border-gray-200 focus:border-slate-900 focus:bg-transparent text-sm outline-0 transition-all" />
                       </div>
                       <div>
-                          <label className='text-sm text-slate-900 font-medium mb-2 block'>Email</label>
-                          <input type='text' placeholder='Enter Email'
+                          <label className='text-sm text-slate-900 font-medium mb-2 block'>Contnido</label>
+                          <input type='text' placeholder='Enter contenido'
                           name="contenido"
                           value={noticia.contenido}
                           onChange={handleChange} 
                           className="w-full py-2.5 px-4 text-slate-800 bg-gray-100 border border-gray-200 focus:border-slate-900 focus:bg-transparent text-sm outline-0 transition-all" />
                       </div>
                       <div>
-                          <label className='text-sm text-slate-900 font-medium mb-2 block'>Subject</label>
-                          <input type='text' placeholder='Enter Subject'
+                          <label className='text-sm text-slate-900 font-medium mb-2 block'>publicacion</label>
+                          <input type='text' placeholder='Enter publicacion'
                           name="fechaPublicacion"
                           value={noticia. fechaPublicacion}
                           onChange={handleChange} 
                           className="w-full py-2.5 px-4 text-slate-800 bg-gray-100 border border-gray-200 focus:border-slate-900 focus:bg-transparent text-sm outline-0 transition-all" />
                       </div>
                       <div>
-                          <label className='text-sm text-slate-900 font-medium mb-2 block'>Message</label>
-                          <input placeholder='Enter Message'
+                          <label className='text-sm text-slate-900 font-medium mb-2 block'>categoria</label>
+                          <input placeholder='Enter categoria'
                           name="categoriaId"
                           type='number'
                           value={noticia.categoriaId}

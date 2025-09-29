@@ -42,9 +42,7 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
               console.log(response)
               setIsVisible(true)
               
-
-              
-              
+      
             } catch (error) {
               console.log(error)
               
@@ -58,7 +56,8 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
               const timer = setTimeout(() => {
                 setIsVisible(false);
                 onClose(false)
-                upload(0) // Oculta el mensaje después de 1000 ms (1 segundo)
+                upload(0)
+                // Oculta el mensaje después de 1000 ms (1 segundo)
               }, 1000);
         
               // Limpia el temporizador si el componente se desmonta antes de que pase el segundo
