@@ -38,6 +38,7 @@ export class serviceNoticia {
  }
 
   async save(data:dto){
+    console.log('enviando data',data)
          try {
              return this.request.post(`${this.url}/api/noticias`,
                  data

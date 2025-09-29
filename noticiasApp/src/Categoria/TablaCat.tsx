@@ -19,6 +19,8 @@ const TablaCat = () => {
 
     
 
+    
+
     const [shareD, setShareD] = useState<{id:number,nombre:string}|0>({id:0,nombre:''});
 
     const data:cat[]=[];
@@ -79,7 +81,7 @@ const TablaCat = () => {
 
     </DataContext.Provider>
     <div className="overflow-x-auto shadow-md sm:rounded-lg p-20 flex-col  ">
-      <button onClick={()=>{setIsOpenAdd(true)}} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Dark</button>
+      <button onClick={()=>{setIsOpenAdd(true)}} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add</button>
       <table className="min-w-full bg-white w-24 table-fixed w-full">
         <thead className="bg-gray-100 whitespace-nowrap">
           <tr>

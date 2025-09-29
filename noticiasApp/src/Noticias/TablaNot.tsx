@@ -3,6 +3,7 @@ import { serviceNoticia } from '../services/Noticia';
 import type { Noticia } from '../helper/Types';
 import { DataContext } from './DataContext';
 import FormEdir from './FormEdir';
+import FormAdd from './FormAdd';
 
 const TablaNot = () => {
 
@@ -18,6 +19,7 @@ const TablaNot = () => {
      const [isOpenEdit, setIsOpenEdit] = useState(false);
     
       const [isOpenDelet, setIsOpenDelet] = useState(false);
+      const [isOpenAdd, setIsOpenAdd] = useState(false);
     
    
         
@@ -75,12 +77,14 @@ const TablaNot = () => {
     <DataContext.Provider value={{noticia, setNoticia}}>
 
          <FormEdir upload={setPagination}   isOpen={isOpenEdit} onClose={setIsOpenEdit} />
+          <FormAdd upload={setPagination}   isOpen={isOpenAdd} onClose={setIsOpenAdd} />
             
     </DataContext.Provider>
 
 
-    <div className="overflow-x-auto">
-      <table className="min-w-full bg-white">
+  <div className="overflow-x-auto shadow-md sm:rounded-lg p-20 flex-col  ">
+      <button onClick={()=>{setIsOpenAdd(true)}} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add</button>
+      <table className="min-w-full bg-white w-24 table-fixed w-full">
         <thead className="bg-gray-100 whitespace-nowrap">
           <tr>
             <th className="p-4 text-left text-[13px] font-semibold text-slate-900">

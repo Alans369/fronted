@@ -41,8 +41,6 @@ const FormAdd = ({ isOpen, onClose,upload }: FormEditProps) => {
                   console.log(response)
                   setIsVisible(true)
                   upload(0)
-    
-                  
                   
                 } catch (error) {
                   console.log(error)
@@ -88,7 +86,7 @@ const FormAdd = ({ isOpen, onClose,upload }: FormEditProps) => {
                       </div>
                       <div>
                           <label className='text-sm text-slate-900 font-medium mb-2 block'>Email</label>
-                          <input type='email' placeholder='Enter Email'
+                          <input type='text' placeholder='Enter Email'
                           name="contenido"
                           value={noticia.contenido}
                           onChange={handleChange} 
@@ -105,14 +103,14 @@ const FormAdd = ({ isOpen, onClose,upload }: FormEditProps) => {
                       <div>
                           <label className='text-sm text-slate-900 font-medium mb-2 block'>Message</label>
                           <input placeholder='Enter Message'
-                          name="categoria"
+                          name="categoriaId"
                           type='number'
-                          value={noticia.categoria.id}
+                          value={noticia.categoriaId}
                           onChange={handleChange} 
                           className="w-full px-4 text-slate-800 bg-gray-100 border border-gray-200 focus:border-slate-900 focus:bg-transparent text-sm pt-3 outline-0 transition-all"/>
                       </div>
                       <button type='submit'
-                          className="text-white bg-slate-900 font-medium hover:bg-slate-800 tracking-wide text-sm px-4 py-2.5 w-full border-0 outline-0 cursor-pointer">Send message</button>
+                          className="text-white bg-slate-900 font-medium hover:bg-slate-800 tracking-wide text-sm px-4 py-2.5 w-full border-0 outline-0 cursor-pointer">Send </button>
   
                       <button onClick={()=>{onClose(false)}} 
                           className="text-white bg-slate-900 font-medium hover:bg-slate-800 tracking-wide text-sm px-4 py-2.5 w-full border-0 outline-0 cursor-pointer">cancelar</button>
