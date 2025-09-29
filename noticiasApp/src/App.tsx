@@ -7,6 +7,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import Categoria from './Categoria/Categoria'
 import Admin from './Admin'
 import Noticia from './Noticias/Noticia'
+import { Register } from './Register'
 
 function App() {
 
@@ -65,9 +66,9 @@ function App() {
           <Link to="/login"
             className="px-4 py-2 text-sm rounded-full font-medium cursor-pointer tracking-wide text-slate-900 border border-gray-400 bg-transparent hover:bg-gray-50 transition-all">
               Login</Link>
-          <button
+          <Link to="/register"
             className="px-4 py-2 text-sm rounded-full font-medium cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all">Sign
-            up</button>
+            up</Link>
 
           <button id="toggleOpen" className="lg:hidden cursor-pointer">
             <svg className="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -82,6 +83,10 @@ function App() {
 
       <Routes>
         <Route path="login" element={<Login />} />
+        <Route>
+
+          <Route path="/register" element={<Register />} />
+        </Route>
         <Route path="/categoria" element={<Categoria></Categoria>} />
         
         <Route path="/admin" element={<Admin></Admin>} >

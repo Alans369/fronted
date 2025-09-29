@@ -1,6 +1,6 @@
 export function Register() {
     return (
-        <>
+        <div className="">
             <form className="max-w-4xl mx-auto p-4">
                 <div className="grid sm:grid-cols-2 gap-6">
                     <div className="relative flex items-center">
@@ -90,7 +90,7 @@ export function Register() {
                 <button type="button"
                     className="mt-12 px-4 py-2 w-full text-[15px] font-medium bg-black text-white hover:bg-[#222] rounded-sm cursor-pointer">Submit</button>
             </form>
-        </>
+        </div>
 
     )
 }
