@@ -1,7 +1,9 @@
 export function Register() {
     return (
-        <div className="">
+        <div className=" flex p-20">
+            
             <form className="max-w-4xl mx-auto p-4">
+          
                 <div className="grid sm:grid-cols-2 gap-6">
                     <div className="relative flex items-center">
                         <input type="text" placeholder="First Name"
