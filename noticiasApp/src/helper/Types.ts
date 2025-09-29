@@ -24,6 +24,15 @@ export interface dto {
   categoriaId: number
 }
 
+export interface Usuario {
+  nombre: string
+  apellido: string
+  telefono: string
+  login: string
+  clave: string
+  rolId: number
+}
+
 
 
 

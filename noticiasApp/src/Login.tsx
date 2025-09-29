@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Loginsend } from "./restore/LoginSend";
+import { AuthService } from "./services/Auth";
+
 
 
 
 const Login = () => {
+
+  //const request=new AuthService()
   const [inputs, setInputs] = useState({ login: '', clave: '' })
   console.log('render');
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();           // ← SIEMPRE primero
     console.log('enviando datos');
     try {
-      await Loginsend(inputs);    // ← espera para ver logs o errores
+      await AuthService.login(inputs);    // ← espera para ver logs o errores
     } catch (err) {
       console.error('Login falló', err);
     }

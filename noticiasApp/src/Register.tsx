@@ -1,12 +1,51 @@
+import { useState} from "react"
+import type { Usuario } from "./helper/Types"
+
 export function Register() {
+
+    const data={
+        nombre:'',
+        apellido:'',
+        telefono:'',
+        login:'',
+        clave:'',
+        rolId:1
+    }
+
+
+       const[forData,setForData] = useState<Usuario>(data)
+
+
+       console.log(forData)
+
+        const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        if(name==="rolId"){
+            setForData(values => ({...values, [name]: parseInt(value)}))
+            console.log(forData)
+            return
+        }
+       setForData(values => ({...values, [name]: value}))
+       
+     
+       
+    }
+
+
+
+
     return (
         <div className=" flex p-20">
-            
             <form className="max-w-4xl mx-auto p-4">
           
                 <div className="grid sm:grid-cols-2 gap-6">
                     <div className="relative flex items-center">
                         <input type="text" placeholder="First Name"
+                        name="nombre"
+                        value={forData.nombre}
+                        onChange={handleChange}
                             className="px-2 py-3 pr-8 bg-white text-slate-900 w-full text-sm border-b border-gray-300 focus:border-black outline-none" />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2"
                             viewBox="0 0 24 24">
@@ -19,6 +58,9 @@ export function Register() {
 
                     <div className="relative flex items-center">
                         <input type="text" placeholder="Last Name"
+                        name="apellido"
+                        onChange={handleChange}
+                        value={forData.apellido}
                             className="px-2 py-3 pr-8 bg-white text-slate-900 w-full text-sm border-b border-gray-300 focus:border-black outline-none" />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2"
                             viewBox="0 0 24 24">
@@ -31,6 +73,9 @@ export function Register() {
 
                     <div className="relative flex items-center">
                         <input type="number" placeholder="Phone No."
+                        name="telefono"
+                        onChange={handleChange}
+                        value={forData.telefono}
                             className="px-2 py-3 pr-8 bg-white text-slate-900 w-full text-sm border-b border-gray-300 focus:border-black outline-none" />
                         <svg fill="#bbb" className="w-[18px] h-[18px] absolute right-2" viewBox="0 0 64 64">
                             <path
@@ -40,7 +85,10 @@ export function Register() {
                     </div>
 
                     <div className="relative flex items-center">
-                        <input type="text" placeholder="Country"
+                        <input type="text" placeholder="username"
+                        name="login"
+                        value={forData.login}
+                        onChange={handleChange}
                             className="px-2 py-3 pr-8 bg-white text-slate-900 w-full text-sm border-b border-gray-300 focus:border-black outline-none" />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" className="w-[18px] h-[18px] absolute right-2"
                             viewBox="0 0 24 24">
@@ -57,7 +105,10 @@ export function Register() {
                     </div>
 
                     <div className="relative flex items-center sm:col-span-2">
-                        <input type="email" placeholder="Email"
+                        <input type="text" placeholder="contraseña"
+                        name="clave"
+                        value={forData.clave}
+                        onChange={handleChange}
                             className="px-2 py-3 pr-8 bg-white text-slate-900 w-full text-sm border-b border-gray-300 focus:border-black outline-none" />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2"
                             viewBox="0 0 682.667 682.667">
@@ -78,14 +129,29 @@ export function Register() {
                     </div>
 
                     <div className="relative flex items-center sm:col-span-2">
-                        <input type="password" placeholder="Password"
-                            className="px-2 py-3 pr-8 bg-white text-slate-900 w-full text-sm border-b border-gray-300 focus:border-black outline-none" />
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
-                            className="w-[18px] h-[18px] absolute right-2 cursor-pointer" viewBox="0 0 128 128">
-                            <path
-                                d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
-                                data-original="#000000"></path>
-                        </svg>
+                        <div className="space-y-6">
+
+                        <div className="flex items-center">
+                            <input type="radio"
+                             
+                             name="rolId"
+                             value="1" 
+                             checked={forData.rolId.toString() === "1"} 
+                             onChange={handleChange}
+                             className="w-5 h-5" />
+                            <label className="text-sm text-black ml-4">Administardor</label>
+                        </div>
+
+                        <div className="flex items-center">
+                            <input type="radio"
+                            onChange={handleChange}
+                             name="rolId"
+                             value="2" 
+                             checked={forData.rolId.toString() === "2"}  className="w-5 h-5"  />
+                            <label className="text-sm text-black ml-4">Cliente</label>
+                        </div>
+
+                        </div>
                     </div>
                 </div>
 
