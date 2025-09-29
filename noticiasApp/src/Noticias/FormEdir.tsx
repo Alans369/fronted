@@ -42,6 +42,7 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
               console.log(response)
               setIsVisible(true)
               upload(0)
+
               
               
             } catch (error) {
@@ -55,7 +56,8 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
             // Si el mensaje es visible, inicia un temporizador
             if (isVisible) {
               const timer = setTimeout(() => {
-                setIsVisible(false); // Oculta el mensaje después de 1000 ms (1 segundo)
+                setIsVisible(false);
+                onClose(false) // Oculta el mensaje después de 1000 ms (1 segundo)
               }, 1000);
         
               // Limpia el temporizador si el componente se desmonta antes de que pase el segundo
@@ -119,9 +121,10 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
                     <button onClick={()=>{onClose(false)}} 
                         className="text-white bg-slate-900 font-medium hover:bg-slate-800 tracking-wide text-sm px-4 py-2.5 w-full border-0 outline-0 cursor-pointer">cancelar</button>
                     </form>
+                    {isVisible &&  mensaje}
                 </div>
 
-                {isVisible &&  mensaje}
+                
                     
                     </div>
             
