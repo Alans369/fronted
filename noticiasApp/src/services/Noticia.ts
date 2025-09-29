@@ -51,18 +51,39 @@ export class serviceNoticia {
      }
 
      async update(data:Noticia){
-        console.log('enviando data',data)
+        console.log('enviando data para actualizar',data)
+
+
+         let categoria:number;;
+
+        if(data.categoria.id===undefined){
+          categoria= parseInt(data.categoria.toString())
+
+
+          
+
+      }else{
+        categoria=parseInt(data.categoria.id.toString());
+          
+
+      }
+
+        
+
+        console.log('id de categoria',categoria)
+
+        
 
         const noticas = {
             id: data.id,
             titulo: data.titulo,
             contenido: data.contenido,
             fechaPublicacion: data.fechaPublicacion,
-            categoriaId:parseInt(String(data.categoria)),
+            categoriaId:categoria,
         
     }
 
-      console.log('actualizando',data)
+      console.log('actualizando',noticas)
         try {
             return this.request.put(`${this.url}/api/noticias/1`,
                     noticas
@@ -77,7 +98,7 @@ export class serviceNoticia {
     
     async delete(id:number){
         try {
-            return this.request.delete(`${this.url}/api/categorias/${id}`)
+            return this.request.delete(`${this.url}/api/noticias/${id}`)
         } catch (error) {
             console.log(error)
             throw error;
