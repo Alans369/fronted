@@ -3,6 +3,7 @@ import FormEdit from './FormEdit';
 import { serviceCategoria } from '../services/Categoria';
 import { DataContext } from './DataContext';
 import Delet from './Delet';
+import FormAdd from './FormAdd';
 
 interface  cat 
   {id:number,nombre:string}
@@ -13,6 +14,8 @@ const TablaCat = () => {
     const [isOpenEdit, setIsOpenEdit] = useState(false);
 
     const [isOpenDelet, setIsOpenDelet] = useState(false);
+
+    const [isOpenAdd, setIsOpenAdd] = useState(false);
 
     
 
@@ -72,9 +75,11 @@ const TablaCat = () => {
 
          <FormEdit upload={setPagination}   isOpen={isOpenEdit} onClose={setIsOpenEdit} />
             <Delet upload={setPagination}  isOpen={isOpenDelet} onClose={setIsOpenDelet} />
+            <FormAdd upload={setPagination}   isOpen={isOpenAdd} onClose={setIsOpenAdd} />
 
     </DataContext.Provider>
-    <div className="overflow-x-auto shadow-md sm:rounded-lg p-20">
+    <div className="overflow-x-auto shadow-md sm:rounded-lg p-20 flex-col  ">
+      <button onClick={()=>{setIsOpenAdd(true)}} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Dark</button>
       <table className="min-w-full bg-white w-24 table-fixed w-full">
         <thead className="bg-gray-100 whitespace-nowrap">
           <tr>
