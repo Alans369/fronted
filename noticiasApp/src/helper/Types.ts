@@ -9,6 +9,29 @@ export interface  Categoria{
     nombre:string
 }
 
+export interface Noticia {
+  id: number
+  titulo: string
+  contenido: string
+  fechaPublicacion: string
+  categoria: Categoria
+}
+
+export interface Paginanoticiass {
+    content:          Noticia[];
+    pageable:         Pageable;
+    last:             boolean;
+    totalElements:    number;
+    totalPages:       number;
+    size:             number;
+    number:           number;
+    sort:             Sort;
+    numberOfElements: number;
+    first:            boolean;
+    empty:            boolean;
+}
+
+
 
 export interface PaginaCategorias {
     content:          Content[];

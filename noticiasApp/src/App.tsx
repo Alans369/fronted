@@ -6,6 +6,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
 import Categoria from './Categoria/Categoria'
 import Admin from './Admin'
+import Noticia from './Noticias/Noticia'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         
         <Route path="/admin" element={<Admin></Admin>} >
          <Route path="cat" element={<Categoria />} />
+         <Route path="noti" element={<Noticia />} />
         
         </Route>
 
