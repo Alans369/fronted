@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import FormEdit from './FormEdit';
 import { serviceCategoria } from '../services/Categoria';
 import { DataContext } from './DataContext';
+import Delet from './Delet';
 
 interface  cat 
   {id:number,nombre:string}
-
 
 
 const TablaCat = () => {
@@ -58,13 +58,20 @@ const TablaCat = () => {
         setIsOpenEdit(true)
     }
 
+    function handleOpenDelete(item:cat){
+        setShareD(item)
+        setIsOpenDelet(true)
+    }
+
+
 
 
   return (
     <>
     <DataContext.Provider value={{shareD, setShareD}}>
 
-         <FormEdit upload={setPagination}   isOpen={isOpenEdit} onClose={() => setIsOpenEdit(false)}/>
+         <FormEdit upload={setPagination}   isOpen={isOpenEdit} onClose={setIsOpenEdit} />
+            <Delet upload={setPagination}  isOpen={isOpenDelet} onClose={setIsOpenDelet} />
 
     </DataContext.Provider>
     <div className="overflow-x-auto shadow-md sm:rounded-lg p-20">
@@ -109,7 +116,7 @@ const TablaCat = () => {
                       data-original="#000000" />
                   </svg>
                 </button>
-                <button title="Delete" className="cursor-pointer">
+                <button onClick={()=>{handleOpenDelete(item)}} title="Delete" className="cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
                     <path
                       d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"
@@ -124,15 +131,6 @@ const TablaCat = () => {
 
 
             ))}
-
-
-          
-          
-
-          
-         
-
-         
         </tbody>
       </table>
       

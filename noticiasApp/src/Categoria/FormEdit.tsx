@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { DataContext } from "./DataContext";
 import { serviceCategoria } from "../services/Categoria";
+import { createPortal } from "react-dom";
 
 interface FormEditProps {
   isOpen: boolean;
@@ -77,7 +78,7 @@ const FormEdit = ({ isOpen, onClose,upload }: FormEditProps) => {
   
 
 
-  return (
+  return createPortal (
     <div
       id="popup-modal"
       className="  fixed z-50  w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
@@ -130,7 +131,7 @@ const FormEdit = ({ isOpen, onClose,upload }: FormEditProps) => {
      
 
 
-    </div>
+    </div>,    document.body
    
   );
 };
