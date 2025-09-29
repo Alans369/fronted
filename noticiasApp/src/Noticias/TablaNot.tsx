@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import { serviceNoticia } from '../services/Noticia';
 import type { Noticia } from '../helper/Types';
 import { DataContext } from './DataContext';
@@ -80,7 +80,8 @@ const TablaNot = () => {
 
   <>
 
-    <DataContext.Provider value={{noticia, setNoticia}}>
+  <Suspense fallback={<div>Loading...</div>}>
+  <DataContext.Provider value={{noticia, setNoticia}}>
 
          <FormEdir upload={setPagination}   isOpen={isOpenEdit} onClose={setIsOpenEdit} />
           <FormAdd upload={setPagination}   isOpen={isOpenAdd} onClose={setIsOpenAdd} />
@@ -195,6 +196,9 @@ const TablaNot = () => {
     </div>
     </div>
 
+  </Suspense>
+
+    
   </>
     
 
