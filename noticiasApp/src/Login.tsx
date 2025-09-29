@@ -27,12 +27,10 @@ async function handleSubmit(e: React.FormEvent) {
 
   return (
     <div>
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 -p-10">
       <div className="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div className="max-w-[480px] w-full">
-          <a href="javascript:void(0)"><img
-            src="https://readymadeui.com/readymadeui.svg" alt="logo" className="w-40 mb-8 mx-auto block" />
-          </a>
+       
 
           <div className="p-6 sm:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
             <h1 className="text-slate-900 text-center text-3xl font-semibold">Sign in</h1>

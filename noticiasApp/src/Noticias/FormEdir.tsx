@@ -75,12 +75,12 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
     return createPortal (
       <div
         id="popup-modal"
-        className="  fixed z-50  w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-                >
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+       className="  fixed z-50  w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+                  >
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center w-5/5">
                     
-            <div className="p-4 mx-auto max-w-xl bg-white">
-                    <h2 className="text-3xl text-slate-900 font-bold">Contact us</h2>
+            <div className="p-4 w-2/5 bg-white">
+                    <h2 className="text-3xl text-slate-900 font-bold">Editar</h2>
                     <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                     <div>
                         <label className='text-sm text-slate-900 font-medium mb-2 block'>Name</label>
