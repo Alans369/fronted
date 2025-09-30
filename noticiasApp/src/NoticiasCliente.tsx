@@ -168,24 +168,18 @@ const NoticiasCliente = () => {
         <div id="default-carousel" className="relative w-full max-w-4xl w-2/5" data-carousel="slide">
           {/* Contenedor principal del carrusel */}
           <div className="relative h-56 overflow-hidden rounded-lg md:h-96 shadow-lg">
-            {slides.map((slide, index) => (
+            {noticia.map((slide, index) => (
               <div
                 key={index}
                 className={`absolute w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'
                   }`}
                 data-carousel-item
               >
-                {slide.type === 'image' ? (
-                  <img
-                    src={slide.url}
-                    className="absolute block w-full h-full object-cover"
-                    alt={slide.alt}
-                  />
-                ) : (
+              
                   <div className="absolute flex items-center justify-center w-full h-full bg-indigo-500">
-                    <span className="text-white text-2xl font-bold p-4 text-center">{slide.content}</span>
+                    <span className="text-white text-2xl font-bold p-4 text-center">{slide.contenido}</span>
                   </div>
-                )}
+                
               </div>
             ))}
           </div>
