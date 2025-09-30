@@ -58,15 +58,23 @@ const TablaNot = () => {
               
         
             }
+
+             
     
             useEffect(() => {
                 getnoticia()
             },[pagination]);
+
+            function cargarNuevo(page:number){
+                setCargando(true)
+                setPagination(page)
+              }
+
             const items = [];
 
             for (let i = 0; i < page.current; i++) {
                 items.push(<li>
-                <span onClick={()=>{setPagination(i)}} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{i+1}</span>
+                <span onClick={()=>{cargarNuevo(i)}} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{i+1}</span>
                 </li>);
             }
 
@@ -80,6 +88,8 @@ const TablaNot = () => {
         setIsOpenDelet(true)
     }
 
+
+   
     
 
 
@@ -207,7 +217,7 @@ const TablaNot = () => {
         </li>
         {items}
         <li>
-        <span onClick={()=>{setPagination(pagination)}} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        <span onClick={()=>{cargarNuevo(pagination)}} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
             <span className="sr-only">Next</span>
             <svg className="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>

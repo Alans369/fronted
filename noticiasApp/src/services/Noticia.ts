@@ -30,6 +30,7 @@ export class serviceNoticia {
       const result = await this.request.get(
         `${this.url}/api/noticias?page=${page}&size=${size}`
       );
+      console.log(result.data)
       return result.data;
     } catch (error) {
       console.log(error)

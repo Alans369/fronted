@@ -94,7 +94,7 @@ const FormAdd = ({ isOpen, onClose,upload }: FormEditProps) => {
                       </div>
                       <div>
                           <label className='text-sm text-slate-900 font-medium mb-2 block'>publicacion</label>
-                          <input type='text' placeholder='Enter publicacion'
+                          <input type='date' placeholder='Enter publicacion'
                           name="fechaPublicacion"
                           value={noticia. fechaPublicacion}
                           onChange={handleChange} 

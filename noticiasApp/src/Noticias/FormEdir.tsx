@@ -100,7 +100,7 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
                     </div>
                     <div>
                         <label className='text-sm text-slate-900 font-medium mb-2 block'>Subject</label>
-                        <input type='text' placeholder='Enter Subject'
+                        <input type='date' placeholder='Enter Subject'
                         name="fechaPublicacion"
                         value={noticia. fechaPublicacion}
                         onChange={handleChange} 
