@@ -1,7 +1,12 @@
-import { useState} from "react"
+import { useEffect, useState} from "react"
 import type { Usuario } from "./helper/Types"
+import { AuthService } from "./services/Auth"
+import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export function Register() {
+
+     const navigate = useNavigate();
 
     const data={
         nombre:'',
@@ -12,7 +17,28 @@ export function Register() {
         rolId:1
     }
 
+    const mensajeError = <div className="bg-red-50 text-red-800 p-6 rounded-lg relative" role="alert">
+              <div className="mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-[18px] cursor-pointer fill-red-500 inline mr-3 shrink-0" viewBox="0 0 32 32">
+                      <path
+                          d="M16 1a15 15 0 1 0 15 15A15 15 0 0 0 16 1zm6.36 20L21 22.36l-5-4.95-4.95 4.95L9.64 21l4.95-5-4.95-4.95 1.41-1.41L16 14.59l5-4.95 1.41 1.41-5 4.95z"
+                          data-original="#ea2d3f" />
+                  </svg>
+                  <p className="font-semibold text-[15px] mr-3">Error Message!</p>
+              </div>
+
+              <span className="block sm:inline text-sm font-medium">This is a error message that requires your attention.</span>
+
+              
+
+              <a href="javascript:void(0)" className="border-b border-red-800 block w-max text-sm font-medium text-red-800 mt-3">Learn more</a>
+          </div>
+
+
+
        const[forData,setForData] = useState<Usuario>(data)
+
+       const [isVisible,setIsVisible] = useState(false)
 
         const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const name = e.target.name;
@@ -29,16 +55,42 @@ export function Register() {
 
        async function handleSubmit(e: React.FormEvent) {
                 e.preventDefault();
-                alert('enviando datos');
+                
                 console.log(forData)
+
+                try {
+                      console.log(await AuthService.register(forData)); 
+                      navigate('/admin');   // ← espera para ver logs o errores
+                    } catch (err) {
+                      console.error('Login falló', err);
+                      setIsVisible(true)
+                    }
             }
+
+        useEffect(() => {
+                        // Si el mensaje es visible, inicia un temporizador
+                        if (isVisible) {
+                          const timer = setTimeout(() => {
+                            setIsVisible(false);
+                           
+                          }, 2000);
+                    
+                          // Limpia el temporizador si el componente se desmonta antes de que pase el segundo
+                          return () => clearTimeout(timer);
+                        }
+                      }, [isVisible]);
 
 
 
 
     return (
-        <div className=" flex p-20">
+        <>
+        <Navbar></Navbar>
+        <div className=" flex-column pt-3">
+
+
             <form  onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4">
+                
           
                 <div className="grid sm:grid-cols-2 gap-6">
                     <div className="relative flex items-center">
@@ -155,10 +207,29 @@ export function Register() {
                     </div>
                 </div>
 
+
+
+
+
+
+
+
+
+
+
+                { isVisible && mensajeError } 
+
+              
+
+
                 <button type="submit"
                     className="mt-12 px-4 py-2 w-full text-[15px] font-medium bg-black text-white hover:bg-[#222] rounded-sm cursor-pointer">Submit</button>
+
+                    
             </form>
         </div>
 
-    )
+ 
+        </>
+           )
 }
