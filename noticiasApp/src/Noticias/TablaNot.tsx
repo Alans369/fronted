@@ -5,6 +5,7 @@ import { DataContext } from './DataContext';
 import FormEdir from './FormEdir';
 import FormAdd from './FormAdd';
 import Delet from './Delet';
+import Sniper from '../Sniper';
 
 const TablaNot = () => {
 
@@ -18,6 +19,7 @@ const TablaNot = () => {
 
 
      const [isOpenEdit, setIsOpenEdit] = useState(false);
+     const [cargando, setCargando] = useState(true);
     
       const [isOpenDelet, setIsOpenDelet] = useState(false);
       const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -50,7 +52,10 @@ const TablaNot = () => {
               } catch (error) {
                 console.log(error)
                 
+              }finally{
+                setCargando(false);
               }
+              
         
             }
     
@@ -75,6 +80,8 @@ const TablaNot = () => {
         setIsOpenDelet(true)
     }
 
+    
+
 
   return (
 
@@ -88,6 +95,8 @@ const TablaNot = () => {
            <Delet upload={setPagination}  isOpen={isOpenDelet} onClose={setIsOpenDelet} />
             
     </DataContext.Provider>
+
+  
 
 
   <div className="overflow-x-auto shadow-md sm:rounded-lg p-20 flex-col  ">
@@ -114,10 +123,20 @@ const TablaNot = () => {
             </th>
           </tr>
         </thead>
-
         <tbody className="whitespace-nowrap">
 
+         {
+            cargando ?<tr>
+            <td colSpan="5" className="p-8">
+              <div className="flex justify-center items-center">
+                <Sniper />
+              </div>
+            </td>
+          </tr>
+            : 
+            
 
+        <>
             {noticias?.map((item)=>(
                 <tr className="hover:bg-gray-50">
             <td className="p-4 text-[15px] text-slate-900 font-medium">
@@ -158,14 +177,21 @@ const TablaNot = () => {
             </td>
           </tr>
 
+          
+
             )
             )}
+          </>
         
 
         
 
 
-        </tbody>
+        
+          }
+
+</tbody>
+        
       </table>
 
       <div className='flex justify-end mr-10 mt-5'>

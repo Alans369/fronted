@@ -4,6 +4,7 @@ import { serviceCategoria } from '../services/Categoria';
 import { DataContext } from './DataContext';
 import Delet from './Delet';
 import FormAdd from './FormAdd';
+import Sniper from '../Sniper';
 
 interface  cat 
   {id:number,nombre:string}
@@ -16,6 +17,9 @@ const TablaCat = () => {
     const [isOpenDelet, setIsOpenDelet] = useState(false);
 
     const [isOpenAdd, setIsOpenAdd] = useState(false);
+
+    const [cargando, setCargando] = useState(true);
+        
 
     
 
@@ -42,6 +46,8 @@ const TablaCat = () => {
           } catch (error) {
             console.log(error)
             
+          }finally{
+            setCargando(false);
           }
     
         }
@@ -101,6 +107,19 @@ const TablaCat = () => {
 
         <tbody className="whitespace-nowrap">
 
+           {
+            cargando ?<tr>
+            <td colSpan="3" className="p-8">
+              <div className="flex justify-center items-center">
+                <Sniper />
+              </div>
+            </td>
+          </tr>
+            : 
+            
+
+        <>
+
             {categorias.map(item => (
                 <tr className="hover:bg-gray-50">
             <td className="p-4 text-[15px] text-slate-900 font-medium">
@@ -136,8 +155,16 @@ const TablaCat = () => {
             </td>
           </tr>
 
+   )
+            )}
+          </>
+        
 
-            ))}
+        
+
+
+        
+          }
         </tbody>
       </table>
       

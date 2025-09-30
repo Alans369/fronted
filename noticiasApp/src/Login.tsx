@@ -12,6 +12,7 @@ const Login = () => {
   //const request=new AuthService()
   const [inputs, setInputs] = useState({ login: '', clave: '' })
   const [see,setSee] = useState(false)
+   
 
   console.log('render');
   async function handleSubmit(e: React.FormEvent) {
@@ -24,6 +25,7 @@ const Login = () => {
     } catch (err) {
       console.error('Login falló', err);
     }
+    
   }
 
   const handleChange = (e: any) => {
