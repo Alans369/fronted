@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
+import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
 import { createPortal } from 'react-dom';
 import { serviceCategoria } from '../services/Categoria';
 

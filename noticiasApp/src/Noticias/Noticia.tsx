@@ -1,4 +1,4 @@
-import React from 'react'
+
 import TablaNot from './TablaNot'
 
 const Noticia = () => {

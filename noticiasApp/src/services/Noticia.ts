@@ -1,5 +1,5 @@
 import axios, { type AxiosInstance } from "axios";
-import type { Categoria,dto,Noticia,Paginanoticiass } from "../helper/Types";
+import type {dto,Noticia,Paginanoticiass } from "../helper/Types";
 
 export class serviceNoticia {
   private url: string = "https://apinoticia.onrender.com";
