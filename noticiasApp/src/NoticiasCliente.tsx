@@ -1,7 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Pagination from './Pagination';
+import Card from './Card';
+import Navbar from './Navbar';
 
 const NoticiasCliente = () => {
+
+    const cardData = [
+  {
+    title: "Noteworthy technology acquisitions 2021",
+    description: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+  },
+  {
+    title: "The Rise of Quantum Computing",
+    description: "Exploring the next frontier of computational power and its potential impact on various industries worldwide.",
+  },
+  {
+    title: "AI in Modern Healthcare",
+    description: "How artificial intelligence is revolutionizing diagnostics, treatment plans, and patient care.",
+  },
+  {
+    title: "Sustainable Energy Solutions",
+    description: "A look into the latest innovations in solar, wind, and geothermal power generation technologies.",
+  },
+  {
+    title: "The Future of Remote Work",
+    description: "Analyzing the tools and cultural shifts that are shaping the modern distributed workforce.",
+  },
+  {
+    title: "Exploring the Deep Sea",
+    description: "Discover the mysteries lurking beneath the waves and the technology used to explore the ocean depths.",
+  },
+];
  const slides = [
     {
       type: 'image',
@@ -62,7 +91,11 @@ const NoticiasCliente = () => {
   return (
 
     <div className=' w-5/5 h-[150px] max-h-100px'>
+        <Navbar></Navbar>
+
     <div className=" bg-gray-100 dark:bg-gray-100 flex items-center justify-center p-4 font-sans">
+
+        <div>
       <div id="default-carousel" className="relative w-full max-w-4xl w-2/5" data-carousel="slide">
         {/* Contenedor principal del carrusel */}
         <div className="relative h-56 overflow-hidden rounded-lg md:h-96 shadow-lg">
@@ -159,11 +192,17 @@ const NoticiasCliente = () => {
           </span>
         </button>
       </div>
+      </div>
     </div>
 
-    <div>
-        
-    </div>
+      <div className="flex flex-wrap justify-center gap-6 mb-10">
+        {/* Usamos .map() para iterar sobre nuestros datos y renderizar 
+          un componente Card para cada elemento. 
+        */}
+        {cardData.map((card, index) => (
+          <Card key={index} title={card.title} description={card.description} />
+        ))}
+      </div>
 
 
     <Pagination></Pagination>
