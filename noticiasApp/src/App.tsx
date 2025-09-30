@@ -9,6 +9,7 @@ import Admin from './Admin'
 import Noticia from './Noticias/Noticia'
 import { Register } from './Register'
 import Navbar from './Navbar'
+import NoticiasCliente from './NoticiasCliente'
 
 function App() {
 
@@ -21,10 +22,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />} />
         <Route path="login" element={<Login />} />
-        <Route>
+  
 
           <Route path="/register" element={<Register />} />
-        </Route>
+          <Route path='/noticias' element={<NoticiasCliente/>}/>
+     
         <Route path="/categoria" element={<Categoria></Categoria>} />
         
         <Route path="/admin" element={<Admin></Admin>} >

@@ -38,9 +38,10 @@ const Navbar = () => {
             <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
               className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Feature</a>
             </li>
-            <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
+            <Link to="/noticias"
+              className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
               className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">Blog</a>
-            </li>
+            </Link>
             <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
               className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]">About</a>
             </li>
