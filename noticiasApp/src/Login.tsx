@@ -90,7 +90,7 @@ const Login = () => {
                     Sign in
                   </button>
                 </div>
-                <p className="text-slate-900 text-sm !mt-6 text-center">Don't have an account? <a href="javascript:void(0);" className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold">Register here</a></p>
+                <p className="text-slate-900 text-sm !mt-6 text-center">Don't have an account? <span onClick={()=>{navigate('/register')}} className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold">Register here</span></p>
               </form>
             </div>
           </div>
