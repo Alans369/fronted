@@ -1,4 +1,4 @@
-import  { useContext, useEffect, useState, type FormEvent } from 'react'
+import  { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
 import { createPortal } from 'react-dom';
 import { serviceNoticia } from '../services/Noticia';
 import { DataContext } from './DataContext';
@@ -17,11 +17,14 @@ const FormEdir = ({ isOpen, onClose,upload }: FormEditProps) => {
        const [isVisible, setIsVisible] = useState(false);
     
        const context  =useContext(DataContext)
+        if (!context) {
+            throw new Error('Delet debe ser usado dentro de DataContext.Provider'); 
+            }
        const {noticia,setNoticia} = context
        
       
     
-        const handleChange = (e) => {
+        const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
             const name = e.target.name;
             const value = e.target.value;
             setNoticia(values => ({...values, [name]: value}))

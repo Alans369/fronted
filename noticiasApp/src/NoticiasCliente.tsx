@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Pagination from './Pagination';
+
 import Card from './Card';
 import Navbar from './Navbar';
 import type { Noticia } from './helper/Types';
@@ -74,32 +74,6 @@ const NoticiasCliente = () => {
 
 
 
-  const cardData = [
-    {
-      title: "Noteworthy technology acquisitions 2021",
-      description: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
-    },
-    {
-      title: "The Rise of Quantum Computing",
-      description: "Exploring the next frontier of computational power and its potential impact on various industries worldwide.",
-    },
-    {
-      title: "AI in Modern Healthcare",
-      description: "How artificial intelligence is revolutionizing diagnostics, treatment plans, and patient care.",
-    },
-    {
-      title: "Sustainable Energy Solutions",
-      description: "A look into the latest innovations in solar, wind, and geothermal power generation technologies.",
-    },
-    {
-      title: "The Future of Remote Work",
-      description: "Analyzing the tools and cultural shifts that are shaping the modern distributed workforce.",
-    },
-    {
-      title: "Exploring the Deep Sea",
-      description: "Discover the mysteries lurking beneath the waves and the technology used to explore the ocean depths.",
-    },
-  ];
   const slides = [
     {
       type: 'image',
@@ -145,7 +119,7 @@ const NoticiasCliente = () => {
   };
 
   // Función para ir a una diapositiva específica haciendo clic en los puntos.
-  const goToSlide = (slideIndex) => {
+  const goToSlide = (slideIndex:number) => {
     setCurrentIndex(slideIndex);
   };
 

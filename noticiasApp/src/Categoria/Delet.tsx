@@ -12,6 +12,14 @@ interface FormEditProps {
 
 const Delet = ({ isOpen, onClose,upload }: FormEditProps) => {
 
+   const context  =useContext(DataContext)
+
+      
+        if (!context) {
+            throw new Error('Delet debe ser usado dentro de DataContext.Provider');
+        }
+       const {shareD} = context
+
 
     const services = new serviceCategoria()
       const [isVisible, setIsVisible] = useState(false);
@@ -36,8 +44,7 @@ const Delet = ({ isOpen, onClose,upload }: FormEditProps) => {
     
   
     
-       const context  =useContext(DataContext)
-       const {shareD,setShareD} = context
+      
 
 
         const  mensaje = 

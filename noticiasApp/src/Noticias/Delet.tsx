@@ -18,7 +18,10 @@ const Delet = ({ isOpen, onClose,upload }: FormEditProps) => {
       const [isVisible, setIsVisible] = useState(false);
 
     const context  =useContext(DataContext)
-       const {noticia,setNoticia} = context
+    if (!context) {
+            throw new Error('Delet debe ser usado dentro de DataContext.Provider');
+        }
+       const {noticia} = context
 
       const borrar = async (e: FormEvent) => {
           e.preventDefault();

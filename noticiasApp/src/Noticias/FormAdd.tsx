@@ -1,4 +1,4 @@
-import {  useEffect, useState, type FormEvent } from 'react'
+import {  useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
 import { serviceNoticia } from '../services/Noticia';
 import { createPortal } from 'react-dom';
 
@@ -20,7 +20,7 @@ const FormAdd = ({ isOpen, onClose,upload }: FormEditProps) => {
            
           
         
-            const handleChange = (e) => {
+            const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
                 const name = e.target.name;
                 const value = e.target.value;
                 setNoticia(values => ({...values, [name]: value}))

@@ -18,6 +18,9 @@ const FormEdit = ({ isOpen, onClose,upload }: FormEditProps) => {
    const [isVisible, setIsVisible] = useState(false);
 
    const context  =useContext(DataContext)
+   if (!context) {
+            throw new Error('Delet debe ser usado dentro de DataContext.Provider');
+        }
    const {shareD,setShareD} = context
    console.log(shareD)
   

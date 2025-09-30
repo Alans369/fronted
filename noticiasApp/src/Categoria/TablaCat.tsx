@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import FormEdit from './FormEdit';
 import { serviceCategoria } from '../services/Categoria';
 import { DataContext } from './DataContext';
@@ -25,7 +25,7 @@ const TablaCat = () => {
 
     
 
-    const [shareD, setShareD] = useState<{id:number,nombre:string}|0>({id:0,nombre:''});
+    const [shareD, setShareD] = useState<{id:number,nombre:string}>({id:0,nombre:''});
 
     const data:cat[]=[];
     
@@ -115,7 +115,7 @@ const TablaCat = () => {
 
            {
             cargando ?<tr>
-            <td colSpan="3" className="p-8">
+            <td colSpan={3} className="p-8">
               <div className="flex justify-center items-center">
                 <Sniper />
               </div>

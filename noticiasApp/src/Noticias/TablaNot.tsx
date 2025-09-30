@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { serviceNoticia } from '../services/Noticia';
 import type { Noticia } from '../helper/Types';
 import { DataContext } from './DataContext';
@@ -137,7 +137,7 @@ const TablaNot = () => {
 
          {
             cargando ?<tr>
-            <td colSpan="5" className="p-8">
+            <td colSpan={5} className="p-8">
               <div className="flex justify-center items-center">
                 <Sniper />
               </div>
