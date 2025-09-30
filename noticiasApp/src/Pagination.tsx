@@ -1,6 +1,14 @@
 import React from 'react'
 
-const Pagination = () => {
+interface CardProps {
+  cmabiar: ()=>void;
+  elemets: number
+}
+
+
+
+const Pagination = ({cmabiar,elemets}: CardProps) => {
+  
   return (
     <div>
         <ul className="flex space-x-5 justify-center">
