@@ -2,7 +2,7 @@
 import './index.css'
 
 import Login from './Login'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter,Route, Routes } from 'react-router-dom'
 
 import Categoria from './Categoria/Categoria'
 import Admin from './Admin'
