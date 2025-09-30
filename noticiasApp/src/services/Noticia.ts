@@ -38,6 +38,19 @@ export class serviceNoticia {
   }
  }
 
+  async getAllCliente(page: number=0, size: number = 6): Promise<Paginanoticiass> {
+    try {
+      const result = await this.request.get(
+        `${this.url}/api/noticias?page=${page}&size=${size}`
+      );
+      console.log(result.data)
+      return result.data;
+    } catch (error) {
+      console.log(error)
+      throw error;
+  }
+ }
+
   async save(data:dto){
     console.log('enviando data',data)
          try {
